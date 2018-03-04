@@ -18,7 +18,7 @@ def split(line):
 	return reader.next()
 
 def main(sc):			
-	ratings_info = sc.textFile("input/trial.csv")
+	ratings_info = sc.textFile("input/ratings.csv")
 	ratings_data = ratings_info.map(split).map(parse).filter(lambda line: line!=None )		
 	
 	training, validation, test = ratings_data.randomSplit([6, 2, 2])
